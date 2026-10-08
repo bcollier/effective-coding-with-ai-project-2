@@ -57,7 +57,7 @@ An AI version of me that teaches from my own slides. A student asks a course que
 
 | A walkthrough | The class clip | On a phone |
 | --- | --- | --- |
-| <img src="images/faculty-twin-walkthrough.webp" alt="A Faculty Twin walkthrough: the slide, the narration caption, the controls and the source card" width="300"> | <img src="images/faculty-twin-class-clip.webp" alt="The class recording of the same slide playing in place of the slide, labeled as my real voice" width="300"> | <img src="images/faculty-twin-phone.webp" alt="A walkthrough on a phone" width="150"> |
+| <img src="images/faculty-twin-walkthrough.webp" alt="A Faculty Twin walkthrough: the slide, the read-along narration box, the controls and the sources list" width="300"> | <img src="images/faculty-twin-class-clip.webp" alt="The class recording of the same slide playing in place of the slide, labeled as my real voice" width="300"> | <img src="images/faculty-twin-phone.webp" alt="A walkthrough on a phone" width="150"> |
 
 *Screenshots of the live site, October 8, 2026. More, with notes on each: [faculty-twin/docs/screenshots](https://github.com/bcollier/faculty-twin/blob/main/docs/screenshots/README.md).*
 
