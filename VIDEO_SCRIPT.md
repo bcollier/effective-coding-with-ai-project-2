@@ -26,7 +26,7 @@ About 6 minutes. Faculty Twin gets 4 of them. Record each scene as its own take 
 
 **Do:** hover the Faculty Twin row, then the four experiment rows.
 
-**Say:** "Project 2 is Faculty Twin, an AI version of me that teaches from my own slides. On the way there I ran four smaller experiments, each one teaching me a piece of it: data visualization, Apple's vision models on my own photos, semantic photo search, and an LLM running a game. I'll show the twin first, then the experiments quickly at the end."
+**Say:** "Project 2 is Faculty Twin, an AI version of me that teaches from my own slides. On the way there I ran four smaller experiments, each one teaching me a piece of it: data visualization, Apple's Vision API from Python on my own photos, semantic photo search, and an LLM running a game. I'll show the twin first, then the experiments quickly at the end."
 
 ## Scene 2. One question, start to finish (0:30 to 1:50)
 
@@ -96,8 +96,8 @@ About 12 seconds each. Show the live page, one interaction, one sentence.
 | Page | Do | Say |
 | --- | --- | --- |
 | [evaluations](https://ben.collier.phd/evaluations/), then [strengths](https://ben.collier.phd/strengths/) | Hover a chart, then scroll Strengths | "Data visualization with AI: my teaching evaluations and my strengths, turned into charts and a synthesis I'd trust, with counts on every chart." |
-| [travel](https://ben.collier.phd/travel/) | Hover a dot, open a photo card, switch to Globe | "Apple Vision on my own photo library: 129,000 photos read on my Mac, 27 countries, nothing uploaded but the results." |
-| [reels](https://ben.collier.phd/reels/) | Play 5 seconds | "Apple Vision for faces plus a local image-search model: 172 photos where I'm the only face, cut to music in WebGL." |
+| [travel](https://ben.collier.phd/travel/) | Hover a dot, open a photo card, switch to Globe | "Apple's Vision API, called from Python, over my own photo library: 129,000 photos read on my Mac, 27 countries, nothing uploaded but the results." |
+| [reels](https://ben.collier.phd/reels/) | Play 5 seconds | "Apple's Vision API from Python for faces, plus a local image-search model: 172 photos where I'm the only face, cut to music in WebGL." |
 | [Connections](https://bcollier.github.io/connections_demo/) | Pick two words | "An LLM as a game engine. The model writes the puzzle, the code checks every one before you play." |
 
 ## Scene 8. Close (5:50 to 6:00)

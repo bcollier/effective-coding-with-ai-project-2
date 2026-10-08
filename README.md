@@ -2,13 +2,13 @@
 
 Ben Collier · CMU 15-113 Effective Coding with AI · Fall 2026
 
-**The project is [Faculty Twin](#5-faculty-twin-the-project).** If you grade one thing, grade that. The other four are the experiments that got me there: each one taught me a piece of what Faculty Twin needed, from turning messy data into a chart a reader can trust, to running Apple's on-device vision models over my own photos, to making a language model follow rules inside an app.
+**The project is [Faculty Twin](#5-faculty-twin-the-project).** If you grade one thing, grade that. The other four are the experiments that got me there: each one taught me a piece of what Faculty Twin needed, from turning messy data into a chart a reader can trust, to calling Apple's Vision API from Python over my own photos, to making a language model follow rules inside an app.
 
 | # | Experiment | What I was learning | Live | Code |
 | --- | --- | --- | --- | --- |
 | 1 | Teaching evaluations and Strengths | Data visualization and synthesis with AI | [evaluations](https://ben.collier.phd/evaluations/) · [strengths](https://ben.collier.phd/strengths/) | [site repo](https://github.com/bcollier/ben.collier.phd) |
-| 2 | Travel map | Apple Vision and photo metadata | [travel](https://ben.collier.phd/travel/) | [README](https://github.com/bcollier/ben.collier.phd/tree/main/travel) |
-| 3 | Reels | Apple Vision faces plus semantic photo search | [reels](https://ben.collier.phd/reels/) | [README](https://github.com/bcollier/ben.collier.phd/tree/main/reels) |
+| 2 | Travel map | Apple's Vision API from Python, plus photo GPS metadata | [travel](https://ben.collier.phd/travel/) | [README](https://github.com/bcollier/ben.collier.phd/tree/main/travel) |
+| 3 | Reels | Apple's Vision API from Python for faces, plus semantic photo search | [reels](https://ben.collier.phd/reels/) | [README](https://github.com/bcollier/ben.collier.phd/tree/main/reels) |
 | 4 | Connections About You | An LLM as a game engine | [play the demo](https://bcollier.github.io/connections_demo/) | [connections_demo](https://github.com/bcollier/connections_demo) |
 | 5 | **Faculty Twin** | Vector search, narration, voice, slides and class video | [faculty-twin.vercel.app](https://faculty-twin.vercel.app) (passcode) | [faculty-twin](https://github.com/bcollier/faculty-twin) |
 
@@ -29,7 +29,7 @@ The demo video: _link here_ · Video script and stage directions: [VIDEO_SCRIPT.
 
 [ben.collier.phd/travel](https://ben.collier.phd/travel/) · [README](https://github.com/bcollier/ben.collier.phd/tree/main/travel)
 
-An interactive map and globe of the 27 countries and 55 US cities I have photographed, built from my own Apple Photos library: 129,597 photos scanned, 48,280 with GPS, 287 chosen. Python read the library read-only (osxphotos), reverse-geocoded offline, used Apple's on-device labels to drop screenshots, selfies and photos with people, and exported small WebP files with location data stripped.
+An interactive map and globe of the 27 countries and 55 US cities I have photographed, built from my own Apple Photos library: 129,597 photos scanned, 48,280 with GPS, 287 chosen. Python read the library read-only (osxphotos), reverse-geocoded offline, called Apple's Vision API from Python, on device, to drop screenshots, selfies and photos with people, and exported small WebP files with location data stripped.
 
 **What carried into Faculty Twin:** private data is processed on my own machine and only safe results are published.
 
@@ -37,7 +37,7 @@ An interactive map and globe of the 27 countries and 55 US cities I have photogr
 
 [ben.collier.phd/reels](https://ben.collier.phd/reels/) · [README and prompt log](https://github.com/bcollier/ben.collier.phd/tree/main/reels)
 
-172 photos of me from 2000 to 2026, cut into a music video drawn in the browser with WebGL and two slideshows. Apple Vision finds every face and body in a photo, and each photo is cropped until mine is the only face or it is left out; a second check runs on the final crop. OpenCLIP, a local image embedding model, does semantic search and sorting ("me at work" versus "me everywhere else") without sending a photo anywhere.
+172 photos of me from 2000 to 2026, cut into a music video drawn in the browser with WebGL and two slideshows. Apple's Vision API, called from Python on my Mac, finds every face and body in a photo, and each photo is cropped until mine is the only face or it is left out; a second check runs on the final crop. OpenCLIP, a local image embedding model, does semantic search and sorting ("me at work" versus "me everywhere else") without sending a photo anywhere.
 
 **What carried into Faculty Twin:** embeddings for search, and a two-pass privacy check where the second pass catches what the first missed. Faculty Twin matches class video frames to slides, and checks every clip again before it is cut.
 
