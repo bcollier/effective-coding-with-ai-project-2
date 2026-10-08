@@ -65,7 +65,3 @@ An AI version of me that teaches from my own slides. A student asks a course que
 | Testing | 800+ automated tests, a security review, and an eval harness that runs 22 real (de-identified) student questions past two AI judges from different companies. |
 
 Hosted on Vercel (app and API) and Supabase (private content, settings, question log).
-
----
-
-_This README was drafted with Claude Code from the five projects' own READMEs and repos. Ben edits it in his own words before submission._
