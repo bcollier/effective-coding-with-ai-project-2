@@ -12,7 +12,7 @@ Ben Collier · CMU 15-113 Effective Coding with AI · Fall 2026
 | 4 | Connections About You | An LLM as a game engine | [play the demo](https://bcollier.github.io/connections_demo/) | [connections_demo](https://github.com/bcollier/connections_demo) |
 | 5 | **Faculty Twin** | Vector search, narration, voice, slides and class video | [faculty-twin.vercel.app](https://faculty-twin.vercel.app) (passcode) | [faculty-twin](https://github.com/bcollier/faculty-twin) |
 
-The demo video: _link here_ · Video script and stage directions: [VIDEO_SCRIPT.md](VIDEO_SCRIPT.md)
+The demo video: _link here_ · Video script and stage directions: [VIDEO_SCRIPT.md](VIDEO_SCRIPT.md) · Prompt log (tools per job, where AI got it wrong, key prompts verbatim): [faculty-twin/prompt_log.md](https://github.com/bcollier/faculty-twin/blob/main/prompt_log.md)
 
 ---
 
