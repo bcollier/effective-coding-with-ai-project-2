@@ -14,6 +14,36 @@ Ben Collier · CMU 15-113 Effective Coding with AI · Fall 2026
 
 The demo video: _link here_ · Video script and stage directions: [VIDEO_SCRIPT.md](VIDEO_SCRIPT.md) · Prompt log (tools per job, where AI got it wrong, key prompts verbatim): [faculty-twin/prompt_log.md](https://github.com/bcollier/faculty-twin/blob/main/prompt_log.md)
 
+## By the numbers
+
+Across the five projects I count about **166 commits on main (roughly 270 including branch commits), 157 pull requests, and about 38 hours of active build time**, as of October 8, 2026. The commit and PR numbers come straight from git and GitHub. The hours are estimates from timestamps.
+
+| Project | Commits on main | Commits incl. branches | Pull requests | Active hours (est.) |
+| --- | --- | --- | --- | --- |
+| **Faculty Twin** (Oct 5 to 8) | 102 | 161 | 100 | ~14 |
+| Teaching evaluations | 17 | ~29\* | 17 | ~4 |
+| Travel map | 11 | ~19\* | 11 | ~6 |
+| Reels | 10 | ~17\* | 10 | ~5 |
+| Strengths | 5 | ~9\* | 5 | ~4 |
+| Connections About You (2026 work) | 9 + 4 on the site | 19 + ~7\* | 8 + 4 on the site | ~4 |
+| Project 2 README repo | 8 | 10 | 2 | ~2.5 |
+| **Total** | **~166** | **~270** | **157** | **~38** |
+
+\* These four, plus Connections' page on my site, all live in the [ben.collier.phd](https://github.com/bcollier/ben.collier.phd) repo. Their PRs were matched by title. Each PR is squash-merged, so there is one commit on main per PR. Branch commits are estimated from the site repo's overall ratio (261 branch commits for 150 on main, about 1.7 each).
+
+**How the hours were estimated.** Commit and PR timestamps were grouped into work sessions: activity less than 90 minutes apart counts as one session, plus 30 to 45 minutes per session for setup and review. This counts active building only. It leaves out thinking, testing by hand, recording the video, and the photo-library processing that ran on its own.
+
+**Other ways to count Faculty Twin's time:**
+
+- **My hands-on time:** about 8 to 9 hours, from my 82 prompts to Claude Code grouped into 7 or 8 sittings.
+- **Calendar span:** about 68 hours, from Oct 5 at 6 pm to Oct 8 at 2 pm, including overnight agent runs.
+- **AI agent time:** about 29 agent-hours across 62 agent runs, mostly in parallel. A few of those runs were site work, such as search and the course-assistant launcher.
+
+**Caveats:**
+
+- Connections was first built in fall 2025. The table counts only this year's work, the themes and the portfolio page. The original build isn't included.
+- A few site PRs were shared by several projects, such as moving them under one tab. Those are counted once, under none of the projects.
+
 ---
 
 ## 1. Data visualization with AI: teaching evaluations and Strengths
