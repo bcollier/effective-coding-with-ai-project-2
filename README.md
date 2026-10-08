@@ -55,6 +55,12 @@ A word game in the style of NYT Connections where a language model with web sear
 
 An AI version of me that teaches from my own slides. A student asks a course question and gets the slides from this semester, in order, narrated in an AI voice made from my recordings, with a card saying which course, session, date and slide it came from, and a short clip of me explaining that slide in class.
 
+| A walkthrough | The class clip | On a phone |
+| --- | --- | --- |
+| <img src="images/faculty-twin-walkthrough.webp" alt="A Faculty Twin walkthrough: the slide, the narration caption, the controls and the source card" width="300"> | <img src="images/faculty-twin-class-clip.webp" alt="The class recording of the same slide playing in place of the slide, labeled as my real voice" width="300"> | <img src="images/faculty-twin-phone.webp" alt="A walkthrough on a phone" width="150"> |
+
+*Screenshots of the live site, October 8, 2026. More, with notes on each: [faculty-twin/docs/screenshots](https://github.com/bcollier/faculty-twin/blob/main/docs/screenshots/README.md).*
+
 | Piece | What it does |
 | --- | --- |
 | Vector search | Each slide's text, speaker notes, recognized image text and what I said in class while it was up, embedded with Voyage AI. My hand-written `rank()` and `select_segments()` pick the slides; my threshold (0.52) decides when to decline. |
@@ -79,3 +85,59 @@ An AI version of me that teaches from my own slides. A student asks a course que
 | TypeSafe Jev | Explored as a third, probability-scoring eval judge (command line only). |
 | Supabase | Postgres for settings, rate limits, daily caps and the question log; private Storage for slides, clips, the index and audio, reached only through short-lived signed links. |
 | Vercel | Hosts the app (static files) and the API (one Python function). Every key lives in its environment variables. |
+
+### How it works
+
+The browser never holds a key and never calls a model. It talks to one FastAPI function on Vercel, which checks the passcode cookie, searches, writes and checks the narration, and signs every link. Course content sits in a private Supabase bucket, built ahead of time on the computer that holds my lecture archive, so rosters, raw transcripts and full class video never leave it. The yellow boxes are the code I wrote by hand.
+
+```mermaid
+flowchart LR
+    classDef ben fill:#fff3c4,stroke:#b8860b,stroke-width:3px,color:#3a2e00
+    classDef private fill:#fbe9e7,stroke:#a33a2a,color:#4a140c
+
+    SB["Student browser<br/>public/ (no keys)"] -- "/api/* with a signed cookie" --> FN["Vercel: FastAPI function app/<br/>holds every key"]
+    SB -- "signed links: slides, clips, audio" --> BK[("Supabase private bucket<br/>index, slides, clips, audio")]
+    FN --- RET["rank(), select_segments(), 0.52<br/>my code"]
+    SB --- PL["onClipEnded()<br/>my code"]
+    FN -- "settings, limits, question log" --> PG[("Supabase Postgres")]
+    FN -- "de-identified text" --> LLM["Claude, OpenAI or OpenRouter"]
+    FN -- "the question" --> VO["Voyage AI embeddings"]
+    FN -- "signed narration only" --> TTS["ElevenLabs or edge-tts"]
+    AR[("Private Lecture Archive<br/>video, transcripts, rosters")] --> IX["indexer/ on the local build machine"]
+    CV["Google Drive decks,<br/>Zoom video and captions"] --> AR
+    CA["Canvas, read-only"] --> IX
+    IX -- "leak check, then allowlist upload" --> BK
+
+    class RET,PL ben
+    class AR private
+```
+
+Every question takes one path, cheapest first:
+
+```mermaid
+flowchart TD
+    classDef ben fill:#fff3c4,stroke:#b8860b,stroke-width:3px,color:#3a2e00
+    classDef out fill:#eef4f8,stroke:#2c5f73,color:#10303c
+    classDef stop fill:#fbe9e7,stroke:#a33a2a,color:#4a140c
+
+    Q["Question arrives at /api/ask<br/>cookie, length and rate limits pass"] --> T{"Same words as a<br/>suggested question?"}
+    T -- yes --> TOPIC["Stored walkthrough<br/>no search, no model"]
+    T -- no --> F{"Matches my course FAQ?"}
+    F -- yes --> FAQ["My written answer, word for word<br/>Calendly button, TA card"]
+    F -- no --> E["Embed once with Voyage"]
+    E --> R["rank() slides and Canvas chunks<br/>my code"]
+    R --> C{"Best Canvas chunk at least 0.55<br/>and above the best slide?"}
+    C -- yes --> INFO["From Canvas card<br/>short answer + links"]
+    C -- no --> SEL["select_segments() with threshold 0.52<br/>my code"]
+    SEL --> COV{"Any slide selected?"}
+    COV -- no --> NC["I don't have course material on that"]
+    COV -- yes --> L{"Logistics?<br/>keywords, then one small model call"}
+    L -- yes --> LOG["That one is for me directly<br/>Calendly button"]
+    L -- "no, or the check failed" --> N["Narration, validators,<br/>signed audio links"]
+
+    class R,SEL ben
+    class TOPIC,FAQ,INFO,N out
+    class NC,LOG stop
+```
+
+All seven diagrams (one question step by step, the content pipeline, privacy boundaries, the Settings page, the eval harness and these two), with explanations: [faculty-twin/docs/ARCHITECTURE.md](https://github.com/bcollier/faculty-twin/blob/main/docs/ARCHITECTURE.md).
