@@ -11,18 +11,18 @@ About 6 minutes. Faculty Twin gets 4 of them. Record each scene as its own take 
 - Settings, Model: **Claude Sonnet 5.5 or Opus 5.5** (about 9 s per typed answer), not Fable (about 20 s).
 - Ask your demo questions once off camera, so you know what they show.
 - Tabs open, in order:
-  1. this repo's README on GitHub
+  1. this repo's README: https://github.com/bcollier/effective-coding-with-ai-project-2
   2. https://faculty-twin.vercel.app
   3. the data and evals page (https://claude.ai/artifact/XUuTEqAm5SnHwTWrFooLLf, or the [GitHub copy](https://htmlpreview.github.io/?https://github.com/bcollier/faculty-twin/blob/main/docs/demo/data-and-evals.html))
-  4. `app/retrieval.py` in your editor, large font
-  5. ben.collier.phd/evaluations, /strengths, /travel, /reels, and the Connections demo
+  4. `app/retrieval.py` in your editor, large font (or on GitHub: https://github.com/bcollier/faculty-twin/blob/main/app/retrieval.py)
+  5. https://ben.collier.phd/evaluations/ , https://ben.collier.phd/strengths/ , https://ben.collier.phd/travel/ , https://ben.collier.phd/reels/ , https://bcollier.github.io/connections_demo/
 - **Never on screen:** the passcode, the Settings Activity log, `.env`, the Vercel or Supabase dashboards, `evals/private/`, any student's name or face.
 
 ---
 
 ## Scene 1. The umbrella (0:00 to 0:30)
 
-**Screen:** this repo's README on GitHub, scrolled to the table.
+**Screen:** this repo's README, scrolled to the table: https://github.com/bcollier/effective-coding-with-ai-project-2#effective-coding-with-ai-project-2
 
 **Do:** hover the Faculty Twin row, then the four experiment rows.
 
@@ -30,7 +30,7 @@ About 6 minutes. Faculty Twin gets 4 of them. Record each scene as its own take 
 
 ## Scene 2. One question, start to finish (0:30 to 1:50)
 
-**Screen:** Faculty Twin idle screen.
+**Screen:** Faculty Twin idle screen: https://faculty-twin.vercel.app
 
 **Do:**
 1. Point at the label "AI voice made from my recordings."
@@ -47,7 +47,7 @@ About 6 minutes. Faculty Twin gets 4 of them. Record each scene as its own take 
 
 ## Scene 3. What goes into the twin (1:50 to 2:40)
 
-**Screen:** the data and evals page, Part 1.
+**Screen:** the data and evals page, Part 1: https://claude.ai/artifact/XUuTEqAm5SnHwTWrFooLLf#data-h (outside Claude: https://htmlpreview.github.io/?https://github.com/bcollier/faculty-twin/blob/main/docs/demo/data-and-evals.html#data-h)
 
 **Do:** scroll slowly from the number tiles to the six steps, then the privacy table.
 
@@ -58,7 +58,7 @@ About 6 minutes. Faculty Twin gets 4 of them. Record each scene as its own take 
 
 ## Scene 4. How I test it (2:40 to 3:40)
 
-**Screen:** the data and evals page, Part 2.
+**Screen:** the data and evals page, Part 2: https://claude.ai/artifact/XUuTEqAm5SnHwTWrFooLLf#eval-h (outside Claude: https://htmlpreview.github.io/?https://github.com/bcollier/faculty-twin/blob/main/docs/demo/data-and-evals.html#eval-h)
 
 **Do:** point at the five harness steps, then the pass-rate chart, then the dimension chart and its legend, then "flagged and fixed".
 
@@ -69,7 +69,12 @@ About 6 minutes. Faculty Twin gets 4 of them. Record each scene as its own take 
 
 ## Scene 5. My hand-written code (3:40 to 4:40)
 
-**Screen:** editor on `app/retrieval.py`, then a terminal running `pytest tests/test_retrieval.py -q`.
+**Screen:** `app/retrieval.py`, then the tests, then a terminal running `pytest tests/test_retrieval.py -q`.
+- Threshold (line 36): https://github.com/bcollier/faculty-twin/blob/main/app/retrieval.py#L36
+- `rank` (line 42): https://github.com/bcollier/faculty-twin/blob/main/app/retrieval.py#L42
+- `select_segments` (line 64): https://github.com/bcollier/faculty-twin/blob/main/app/retrieval.py#L64
+- Tests: https://github.com/bcollier/faculty-twin/blob/main/tests/test_retrieval.py
+- `onClipEnded()` (line 947): https://github.com/bcollier/faculty-twin/blob/main/public/app.js#L947
 
 **Prompts (your words):**
 - What `rank` computes and why cosine similarity.
@@ -80,7 +85,7 @@ About 6 minutes. Faculty Twin gets 4 of them. Record each scene as its own take 
 
 ## Scene 6. The architecture (4:40 to 5:00)
 
-**Screen:** the architecture diagram in the faculty-twin [SPEC](https://github.com/bcollier/faculty-twin/blob/main/docs/SPEC.md#architecture), or the README table with its "Hosted on" column.
+**Screen:** the architecture diagram: https://github.com/bcollier/faculty-twin/blob/main/docs/SPEC.md#architecture, or the README table with its "Hosted on" column: https://github.com/bcollier/faculty-twin#architecture
 
 **Say:** "The app and API run on Vercel. Course content, settings and the question log are in Supabase, private, reached only through signed links after the passcode. Keys never reach the browser. Claude writes the narration, Voyage does the search, ElevenLabs does the voice."
 
@@ -97,6 +102,6 @@ About 12 seconds each. Show the live page, one interaction, one sentence.
 
 ## Scene 8. Close (5:50 to 6:00)
 
-**Screen:** back to Faculty Twin's idle screen.
+**Screen:** back to Faculty Twin's idle screen: https://faculty-twin.vercel.app
 
 **Say:** "Each experiment taught me one piece. Faculty Twin puts them together: search, narration, voice, video, and privacy, tested with real student questions. Thanks."
