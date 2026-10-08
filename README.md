@@ -64,4 +64,18 @@ An AI version of me that teaches from my own slides. A student asks a course que
 | Privacy | Every person named except me is removed from transcripts, student speech is left out, and a roster check runs before anything is uploaded. Content is behind a passcode. |
 | Testing | 800+ automated tests, a security review, and an eval harness that runs 22 real (de-identified) student questions past two AI judges from different companies. |
 
-Hosted on Vercel (app and API) and Supabase (private content, settings, question log).
+**APIs and services it uses:**
+
+| Service | What it does in Faculty Twin |
+| --- | --- |
+| Anthropic API (Claude) | Writes the narration. Default Claude Sonnet 5.5; Opus 5.5 and Haiku 4.5 can be picked in Settings. Claude Opus 5.5 is also one of the eval judges. |
+| OpenAI API | The second narration option (GPT-6.1 Sol, GPT-6 Luna, GPT-6 Astra) and the second eval judge (GPT-6.1 Sol), so answers are graded by a model from another company. |
+| OpenRouter | A third narration option: one key for Claude and other models. |
+| Voyage AI | Embeddings (voyage-3.5) for the slide search index and for each question. |
+| ElevenLabs | My voice clone and the stock voices (eleven_multilingual_v2), with a daily character cap. |
+| Microsoft neural voices (edge-tts) | Free voices with no key, and the fallback when ElevenLabs fails or reaches its cap. |
+| Apple Vision | Reads the text in slide images (OCR) on my Mac while the index is built. |
+| Zoom transcripts and Whisper | What I said in class: Zoom's captions, with Whisper transcripts where a recording had none. De-identified before indexing. |
+| TypeSafe Jev | Explored as a third, probability-scoring eval judge (command line only). |
+| Supabase | Postgres for settings, rate limits, daily caps and the question log; private Storage for slides, clips, the index and audio, reached only through short-lived signed links. |
+| Vercel | Hosts the app (static files) and the API (one Python function). Every key lives in its environment variables. |
